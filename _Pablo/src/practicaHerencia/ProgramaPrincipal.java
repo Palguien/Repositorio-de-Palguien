@@ -7,7 +7,7 @@ public class ProgramaPrincipal {
 
 	public static void main(String[] args) {
 		//Creo melodias
-		String[] escala = {"DO","RE","MI","FA","SOL","LA","SI","DO"};
+		String[] escala = {"RE","RE","RE","RE","SOL","LA","LA","LA"};
 		String[] escalaMal = {"DO","RE","MI","FA","SOL","LA","SIbemol","DO"};
 		String[] partitura = {"DO","RE","DO","LA","SOL","LA","SI","DO","FA"};
 		//Creo objeto Piano
