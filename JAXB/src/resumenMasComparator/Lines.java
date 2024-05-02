@@ -1,4 +1,4 @@
-package resumen;
+package resumenMasComparator;
 
 import java.util.Arrays;
 
@@ -29,7 +29,7 @@ public class Lines {
 	public void setPartners(LineOrder[] partners) {
 		this.partners = partners;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Lines [LineOrders=" + Arrays.toString(partners) + "]";

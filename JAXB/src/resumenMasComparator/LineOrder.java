@@ -1,4 +1,4 @@
-package resumen;
+package resumenMasComparator;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement (name="lineorder")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class LineOrder implements Serializable{
+public class LineOrder implements Serializable, Comparable<Object>{
 	//en caso de usar linea de serializacion binaria al escribir objetos en fichero para leerlos 
 	//tienen que tener el mismo serialVersion y el mismo nombre de paquete
 	private static final long serialVersionUID = 2L;
@@ -33,6 +33,30 @@ public class LineOrder implements Serializable{
 	
 	public double getTotal() {
 		return units*price;
+	}
+	@Override
+	public int compareTo(Object otter) {
+			return (int) (this.price-((LineOrder) otter).getPrice());
+
+	}
+	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public int getUnits() {
+		return units;
+	}
+	public void setUnits(int units) {
+		this.units = units;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

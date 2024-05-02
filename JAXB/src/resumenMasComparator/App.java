@@ -1,4 +1,4 @@
-package resumen;
+package resumenMasComparator;
 
 import java.io.EOFException;
 import java.io.File;
@@ -8,10 +8,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Arrays;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -27,7 +27,14 @@ public class App {
 		LineOrder par2= new LineOrder("objeto2",20,2);
 		LineOrder par3=new LineOrder("objeto3",30,3);
 		LineOrder[] par = {par1, par2, par3};
+		
+		Arrays.sort(par);
+		
 		Lines pars = new Lines(par);
+		
+		for (LineOrder lineOrder : par) {
+			System.out.println(lineOrder.toString());
+		}
 		
 		boolean exit=false;
 		
