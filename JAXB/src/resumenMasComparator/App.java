@@ -18,7 +18,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 
-
 public class App {
 
 	public static void main(String[] args) {
@@ -28,7 +27,7 @@ public class App {
 		LineOrder par3=new LineOrder("objeto3",30,3);
 		LineOrder[] par = {par1, par2, par3};
 		
-		Arrays.sort(par);
+		Arrays.sort(par, new LineOrderComparator());
 		
 		Lines pars = new Lines(par);
 		
