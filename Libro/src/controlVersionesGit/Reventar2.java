@@ -1,11 +1,7 @@
 package controlVersionesGit;
 
-public class ParaReventarV1 {
-
+public class Reventar2 {
 	public static void main(String[] args) {
-		System.out.println("ultima version");
-
-
+		System.out.println("hola");
 	}
-
 }
