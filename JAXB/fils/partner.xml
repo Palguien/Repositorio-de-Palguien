@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lines>
+    <lineorder>
+        <price>1.0</price>
+        <units>50</units>
+        <description>objeto1</description>
+    </lineorder>
+    <lineorder>
+        <price>2.0</price>
+        <units>20</units>
+        <description>objeto2</description>
+    </lineorder>
+    <lineorder>
+        <price>3.0</price>
+        <units>30</units>
+        <description>objeto3</description>
+    </lineorder>
+</lines>
