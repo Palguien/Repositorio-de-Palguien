@@ -27,7 +27,8 @@ public class App {
 		LineOrder par3=new LineOrder("objeto3",30,3);
 		LineOrder[] par = {par1, par2, par3};
 		
-		Arrays.sort(par, new LineOrderComparator());
+		//Arrays.sort(par, new LineOrderComparator());
+		Arrays.sort(par, par1);
 		
 		Lines pars = new Lines(par);
 		
