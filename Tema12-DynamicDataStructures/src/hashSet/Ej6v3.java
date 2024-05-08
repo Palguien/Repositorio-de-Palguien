@@ -8,10 +8,10 @@ public class Ej6v3 {
 
 	public static void main(String[] args) {
 
-		HashSet<Object> daw1 = new HashSet<Object>();
-		HashSet<Object> daw2 = new HashSet<Object>();
+		HashSet<Alumno> daw1 = new HashSet<Alumno>();
+		HashSet<Alumno> daw2 = new HashSet<Alumno>();
 		
-		Alumno2 leocadio = new Alumno2(1, "Leocadio", 22, "daw1");
+		Alumno2 leocadio = new Alumno2(1, "Leocadio", 22, "daw2");
 		Alumno2 stewie = new Alumno2(2, "Stewie", 27, "daw1");
 		Alumno2 anselmo = new Alumno2(3, "Anselmo", 22, "daw1");
 		Alumno2 stuart = new Alumno2(4, "Stuart", 22, "daw1");
@@ -47,8 +47,8 @@ public class Ej6v3 {
 
 	}
 	
-	private static void removeElementbyId(HashSet<Object> group,int id) {
-		Iterator<Object> iter=group.iterator();
+	private static void removeElementbyId(HashSet<Alumno> group,int id) {
+		Iterator<Alumno> iter=group.iterator();
 		
 		while(iter.hasNext()) {
 			Alumno2 aux=(Alumno2) iter.next();
@@ -58,9 +58,9 @@ public class Ej6v3 {
 			}
 		}
 	}
-
-	private static void visualizeMethod(HashSet<Object> set) {
-		Iterator<Object> iter=set.iterator();
+	//T pide un tipo genérico
+	private static <T> void visualizeMethod(HashSet<T> set) {
+		Iterator<T> iter=set.iterator();
 		while(iter.hasNext()) {
 			System.out.println(iter.next());
 		}
