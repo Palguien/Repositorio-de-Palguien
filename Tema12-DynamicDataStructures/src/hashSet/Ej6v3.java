@@ -3,19 +3,21 @@ package hashSet;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Ej6v2 {
+//Usa alumno2 que tiene hashCode e equals modificado
+public class Ej6v3 {
 
 	public static void main(String[] args) {
 
 		HashSet<Object> daw1 = new HashSet<Object>();
 		HashSet<Object> daw2 = new HashSet<Object>();
 		
-		Alumno leocadio = new Alumno(1, "Leocadio", 22, "daw1");
-		Alumno stewie = new Alumno(2, "Stewie", 27, "daw1");
-		Alumno anselmo = new Alumno(3, "Anselmo", 22, "daw1");
-		Alumno stuart = new Alumno(4, "Stuart", 22, "daw1");
+		Alumno2 leocadio = new Alumno2(1, "Leocadio", 22, "daw1");
+		Alumno2 stewie = new Alumno2(2, "Stewie", 27, "daw1");
+		Alumno2 anselmo = new Alumno2(3, "Anselmo", 22, "daw1");
+		Alumno2 stuart = new Alumno2(4, "Stuart", 22, "daw1");
 		
-		daw1.add(new Alumno(1, "Macareno", 15, "daw1"));
+		daw1.add(new Alumno2(1, "Macareno", 15, "daw1"));
+		daw1.add(new Alumno2(1, "Macareno", 15, "daw1"));
 		daw1.add(leocadio);
 		System.out.println("-------------DAW1-------------");
 		
@@ -49,7 +51,7 @@ public class Ej6v2 {
 		Iterator<Object> iter=group.iterator();
 		
 		while(iter.hasNext()) {
-			Alumno aux=(Alumno) iter.next();
+			Alumno2 aux=(Alumno2) iter.next();
 			
 			if(aux.getId()==id) {
 				iter.remove();
