@@ -2,18 +2,18 @@ package personasYtal;
 
 import java.util.Arrays;
 
-public class Student extends Persona {
+public class Alumno extends Persona {
 	//atributes
 	private String group;
 	private int marks[];
 	final private int TAM=5;
 	//builders
-	public Student(String name, String surname, String adress, int age, String group, int[] marks) {
+	public Alumno(String name, String surname, String adress, int age, String group, int[] marks) {
 		super(name, surname, adress, age);
 		setGroup(group);
 		setMarks(marks);
 	}
-	public Student(String name, String surname) {
+	public Alumno(String name, String surname) {
 		super(name,surname,null,0);
 		int[] notas=new int[TAM];
 		for (int i = 0; i < notas.length; i++) {
