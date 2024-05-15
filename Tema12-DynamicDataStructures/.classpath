@@ -7,5 +7,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/junior/Desktop/Dialogs.jar"/>
+	<classpathentry kind="lib" path="C:/Users/junior/Downloads/dialogos.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
