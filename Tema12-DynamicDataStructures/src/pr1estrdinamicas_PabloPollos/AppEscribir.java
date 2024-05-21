@@ -20,6 +20,7 @@ public class AppEscribir {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		
+		
 		HashMap<Character,Académico> rae = new HashMap<>();	//Declarar mapa
 		rae.put('A', new Académico("Wamba",710));	//Insertar académicos al mapa
 		rae.put('B', new Académico("Wifredo",2019));
@@ -28,6 +29,7 @@ public class AppEscribir {
 		
 		Académico aca = new Académico("Volcarona",2010);//comprobamos que nuevoAcademico() funciona
 		nuevoAcademico(rae,'Z',aca);
+		
 		
 		//recorrer el mapa
 		System.out.println("Recorriendo el HashMap:");
