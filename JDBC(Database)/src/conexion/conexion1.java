@@ -28,11 +28,16 @@ public class conexion1 {
 			
 			ResultSet rset = stmt.executeQuery("select * from fabricante");
 			
+			
 			while(rset.next()) {
 				//System.out.println(rset.getString(1)+" --- "+rset.getString(2));
 				listaFab.add(new Fabricante(rset.getString(1),rset.getString(2)));
 			}
 			
+			stmt.close();
+			
+			//comparadorId cID = new comparadorId();
+			//Collections.sort(listaFab,cID);
 			Collections.sort(listaFab);
 			for (Fabricante fabricante : listaFab) {
 				System.out.println(fabricante.toString());
