@@ -2,6 +2,7 @@ package conexion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
@@ -9,7 +10,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class conexion1 {
+import dialogs.Dialogs;
+
+public class conexion2_sentParametrizadas {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
@@ -22,15 +25,25 @@ public class conexion1 {
 			ArrayList<Fabricante> listaFab = new ArrayList<Fabricante>();
 			
 			Connection conexion = DriverManager.getConnection(url, username, password);	
-			Statement stmt = conexion.createStatement();
 			
+			//Statement stmt = conexion.createStatement();
 			//stmt.executeUpdate(insert);
+			//stmt.executeUpdate("delete from articulo where codart='0000000001' ");
+			//ResultSet rset = stmt.executeQuery("select * from articulo");
+
 			
-			ResultSet rset = stmt.executeQuery("select * from fabricante");
+			//sentencias parametrizadas (pedir un tipo de dato concreto, para evitar que rompan la BD)
+			PreparedStatement pstmt = conexion.prepareStatement("select * from articulo where (codArt = ? or codArt = ? or nomArt=?)");
+//			pstmt.setInt(1, 8);
+			int id=Dialogs.askIntDialog("give me the code");
+			pstmt.setInt(1, id);
+			pstmt.setInt(2, 4);
+			pstmt.setString(3, "tablet");
+			ResultSet rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				//System.out.println(rset.getString(1)+" --- "+rset.getString(2));
-				listaFab.add(new Fabricante(rset.getString(1),rset.getString(2)));
+				System.out.println(rset.getString(1)+" --- "+rset.getString(2));
+				//listaFab.add(new Fabricante(rset.getString(1),rset.getString(2)));
 			}
 			
 			Collections.sort(listaFab);
