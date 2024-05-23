@@ -72,7 +72,7 @@ public class VentanaPal extends JFrame {
 	public void setLabelResultado(JLabel LabelResultado) {
 		this.LabelResultado = LabelResultado;
 	}
-	//
+	//enlaza el controlador
 	public void setControl(Controlador control) {
 		buscarBtn.addActionListener(control);
 		this.control=control;
