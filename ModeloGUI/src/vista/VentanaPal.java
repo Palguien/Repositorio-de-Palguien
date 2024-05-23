@@ -17,10 +17,11 @@ import javax.swing.JLabel;
 public class VentanaPal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	//declarar fuera
 	private JPanel contentPane;
 	JButton buscarBtn;
 	JPanel panel;
-	JLabel LabelResultado;
+	public JLabel LabelResultado;
 
 	/**
 	 * Launch the application.
@@ -53,12 +54,12 @@ public class VentanaPal extends JFrame {
 		buscarBtn = new JButton("Buscar");
 		
 		//codigo para controlador
-		buscarBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Modelo mod = new Modelo();
-				LabelResultado.setText(mod.aleatoria());
-			}
-		});
+//		buscarBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Modelo mod = new Modelo();
+//				LabelResultado.setText(mod.aleatoria());
+//			}
+//		});
 		
 		contentPane.add(buscarBtn, BorderLayout.SOUTH);
 		
@@ -67,6 +68,14 @@ public class VentanaPal extends JFrame {
 		
 		LabelResultado = new JLabel("New label");
 		panel.add(LabelResultado);
+	}
+	//get y set
+	public JLabel getLabelResultado() {
+		return LabelResultado;
+	}
+	
+	public void setLabelResultado(JLabel LabelResultado) {
+		this.LabelResultado = LabelResultado;
 	}
 
 }
