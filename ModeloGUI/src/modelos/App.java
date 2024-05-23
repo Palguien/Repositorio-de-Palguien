@@ -13,6 +13,8 @@ public class App {
 			public void run() {
 				try {
 					VentanaPal frame = new VentanaPal();
+					Controlador control=new Controlador(frame);
+					frame.setControl(control);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

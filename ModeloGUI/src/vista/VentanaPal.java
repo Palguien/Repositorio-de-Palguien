@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import modelos.Controlador;
 import modelos.Modelo;
 
 import java.awt.BorderLayout;
@@ -22,6 +23,7 @@ public class VentanaPal extends JFrame {
 	JButton buscarBtn;
 	JPanel panel;
 	public JLabel LabelResultado;
+	Controlador control;
 
 	/**
 	 * Launch the application.
@@ -43,6 +45,7 @@ public class VentanaPal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPal() {
+		//Cosas de Design
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -52,14 +55,6 @@ public class VentanaPal extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		buscarBtn = new JButton("Buscar");
-		
-		//codigo para controlador
-//		buscarBtn.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				Modelo mod = new Modelo();
-//				LabelResultado.setText(mod.aleatoria());
-//			}
-//		});
 		
 		contentPane.add(buscarBtn, BorderLayout.SOUTH);
 		
@@ -76,6 +71,11 @@ public class VentanaPal extends JFrame {
 	
 	public void setLabelResultado(JLabel LabelResultado) {
 		this.LabelResultado = LabelResultado;
+	}
+	//
+	public void setControl(Controlador control) {
+		buscarBtn.addActionListener(control);
+		this.control=control;
 	}
 
 }
