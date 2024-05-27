@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"date","l":"Dates"},{"p":"dialogs","l":"Dialogs"},{"p":"myExceptions","l":"intervalException"}];updateSearchResults();

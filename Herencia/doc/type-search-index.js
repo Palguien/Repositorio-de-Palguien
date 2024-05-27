@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"dubijo","l":"_AppDubijo"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"dubijo","l":"Box"},{"p":"dubijo","l":"Line"},{"p":"dubijo","l":"Rectangle"}];updateSearchResults();
