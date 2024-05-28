@@ -4,8 +4,8 @@ import java.sql.*;
 public class ArticuloDAO {
 	private static Connection conectar() {
 		Connection con=null;		
-		String usr="c##JDBC_prueba1", pass="prueba1";
-		String url="jdbc:oracle:thin:@10.1.2.243:1521:xe";
+		String usr="c##bdarticulo", pass="bdarticulo";
+		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		
         try {
             con = DriverManager.getConnection(url, usr, pass);
