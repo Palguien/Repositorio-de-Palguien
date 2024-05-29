@@ -32,11 +32,11 @@ public class AppFabricante {
 	}
  
 	public static void inserFab() {
-		Fabricante fab;
+		Alumno fab;
 		String nomFab,codFab;
 		codFab=Dialogos.pedirCadena("C�digo de fabricante: ");
 		nomFab=Dialogos.pedirCadena("Nombre de fabricante: ");
-		fab=new Fabricante(codFab,nomFab);
+		fab=new Alumno(codFab,nomFab);
 		FabricanteDAO.create(fab);
 	}
 	
@@ -47,7 +47,7 @@ public class AppFabricante {
 	}
 	
 	public static void modifFab() {
-		Fabricante fab;
+		Alumno fab;
 		String codFab,nomFab;
 		codFab=Dialogos.pedirCadena("C�digo de art�culo: ");
 		fab=FabricanteDAO.read(codFab);
@@ -55,13 +55,13 @@ public class AppFabricante {
 		
 		nomFab=Dialogos.pedirCadena("Nombre de art�culo: ");
 		codFab=Dialogos.pedirCadena("C�digo de fabricante: ");
-		fab=new Fabricante(codFab,nomFab);
+		fab=new Alumno(codFab,nomFab);
 		FabricanteDAO.update(fab);
 	}
 	
 	public static void consulFab() {
 		String codFab;
-		Fabricante fab;		
+		Alumno fab;		
 		codFab=Dialogos.pedirCadena("Introduce c�digo de fabricante");
 		fab=FabricanteDAO.read(codFab);
 		Dialogos.mensajeInfo(fab.toString());

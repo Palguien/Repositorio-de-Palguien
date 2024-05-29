@@ -1,19 +1,19 @@
 package abraham;
 
-public class Fabricante {
+public class Alumno {
 	static String codigo="0000000000";
 	private String CodFab;
 	private String NomFab;
 	
-	public Fabricante() {
+	public Alumno() {
 		int cod;
 		cod=Integer.parseInt(Articulo.codigo)+1;
-		Fabricante.codigo=Integer.toString(cod);		
-		this.CodFab=Fabricante.codigo;
+		Alumno.codigo=Integer.toString(cod);		
+		this.CodFab=Alumno.codigo;
 		this.NomFab="";		
 	}
 	
-	public Fabricante(String codFab, String nomFab) {		
+	public Alumno(String codFab, String nomFab) {		
 		CodFab = codFab;
 		NomFab = nomFab;
 	}

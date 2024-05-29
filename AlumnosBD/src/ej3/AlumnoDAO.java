@@ -1,4 +1,4 @@
-package abraham;
+package ej3;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,11 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class FabricanteDAO {
+import dialogs.Dialogs;
 
-	private static Connection conectar() {
+
+public class AlumnoDAO {
+	public static Connection conectar() {
 		Connection con=null;		
-		String usr="c##bdarticulo", pass="bdarticulo";
+		String usr="c##alumnos", pass="alumnos";
 		String url="jdbc:oracle:thin:@localhost:1521:xe";
 		
         try {
@@ -21,85 +23,90 @@ public class FabricanteDAO {
         return con;
     }
 	
-	
-	 public static void create(Alumno fabricante) {
-	        if (fabricante != null) {
+	 public static void create(Alumno alumno) {
+	        if (alumno != null) {
 	            Connection conexion = conectar();
-	            String sql = "INSERT INTO Fabricante "
-	                    + "VALUES ( ?,    ?)";
+	            String sql = "INSERT INTO Alumnos "
+	                    + "VALUES ( ?,    ?,NULL, ?, ?)";
 	            try {
 	                PreparedStatement sentencia = conexion.prepareStatement(sql);
-	                sentencia.setString(1, fabricante.getCodFab());
-	                sentencia.setString(2, fabricante.getNomFab());                
+	                sentencia.setInt(1, alumno.getNum());
+	                sentencia.setString(2, alumno.getNombre());
+	                sentencia.setDouble(3, alumno.getMedia());
+	                sentencia.setString(4, alumno.getCurso()); 
 	                sentencia.executeUpdate();
 	                conexion.close(); 
 	            } catch (SQLException ex) {
-	                System.out.println("Error al insertar en fabricante");
+	                System.out.println("Error al insertar en alumno");
 	            }
 	        }
 	    }
 	 
-	 
-	 public static Alumno read(String codFab) {
-		 Alumno fabricante = null;
+	 public static Alumno read(int id) {
+		 Alumno alumno = null;
 	        String sql = "SELECT *"
-	                + "FROM Fabricante "
+	                + "FROM Alumnos "
 	                + "WHERE CodFab = ?";
 	        try {
 	            Connection conexion = conectar();
 	            PreparedStatement sentencia = conexion.prepareStatement(sql);
-	            sentencia.setString(1, codFab); 
+	            sentencia.setInt(1, id); 
 
 	            ResultSet rs = sentencia.executeQuery();
 
 	            if (rs.next()) { 
 	            	
-	                String nomFab = rs.getString("NomFab");                
+	                String nom = rs.getString("nom");
+	                double media = rs.getDouble("media"); 
+	                String curso = rs.getString("curso"); 
 
-	                fabricante = new Alumno(codFab, nomFab);
+	                alumno = new Alumno(id, nom,media,curso);
 	                conexion.close();
 	            }
 	        } catch (SQLException ex) {
-	            System.out.println("Error al consultar un fabricante.");
+	            System.out.println("Error al consultar un alumno.");
 	        }
 
-	        return fabricante; 
+	        return alumno; 
 	    }
 	 
-	 
-	 public static void update(Alumno fabricante) {
-	        if (fabricante != null) {
-	            String sql = "UPDATE Fabricante "
-	                    + "SET NomFab=?"
-	                    + "WHERE CodFab = ?";
+	 public static void update(Alumno alumno) {
+	        if (alumno != null) {
+	            String sql = "UPDATE Alumnos "
+	                    + "SET Media=?"
+	                    + "WHERE num = ?";
 	            try {
 	                Connection conexion = conectar();
 	                PreparedStatement sentencia = conexion.prepareStatement(sql);
 
-	                sentencia.setString(1, fabricante.getCodFab());
+	                double newMedia= Dialogs.askFloatDialog("Nueva media");
+	                sentencia.setDouble(1, newMedia);
+	                sentencia.setInt(2, alumno.getNum());
 
 	                sentencia.executeUpdate();
 	                conexion.close();
 	            } catch (SQLException ex) {
-	                System.out.println("Error al actualizar un fabricante.");
+	                System.out.println("Error al actualizar un alumno.");
 	            }
 	        }
 	    }
 	 
 	 
-	   public static void delete(String codFab) {
-	        String sql = "DELETE FROM Fabricante "
-	                + "WHERE CodFab = ?";
+	 public static void delete(int id) {
+	        String sql = "DELETE FROM Alumnos "
+	                + "WHERE num = ?";
 	        try {
 	            Connection conexion = conectar();
 	            PreparedStatement sentencia = conexion.prepareStatement(sql);
 
-	            sentencia.setString(1, codFab); 
+	            sentencia.setInt(1, id); 
 
 	            sentencia.executeUpdate();
 	            conexion.close();
 	        } catch (SQLException ex) {
-	            System.out.println("Error al eliminar un fabricante.");
+	            System.out.println("Error al eliminar un alumno.");
 	        }
 	    }
+	 
+	 
 }

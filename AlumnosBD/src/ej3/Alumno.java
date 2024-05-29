@@ -1,19 +1,24 @@
 package ej3;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Alumno {
+public class Alumno implements Comparable<Object>,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3L;
 	//atributes
 	int num;
 	String nombre;
-	int media;
+	double media;
 	String curso;
 	
 	//constructores
 	public Alumno() {
 		super();
 	}
-	public Alumno(int num, String nombre, int media, String curso) {
+	public Alumno(int num, String nombre, double media, String curso) {
 		super();
 		this.num = num;
 		this.nombre = nombre;
@@ -33,10 +38,10 @@ public class Alumno {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getMedia() {
+	public double getMedia() {
 		return media;
 	}
-	public void setMedia(int media) {
+	public void setMedia(double media) {
 		this.media = media;
 	}
 	public String getCurso() {
@@ -61,5 +66,15 @@ public class Alumno {
 		return Objects.equals(curso, other.curso) && media == other.media && Objects.equals(nombre, other.nombre)
 				&& num == other.num;
 	}
+	@Override
+	public int compareTo(Object o) {
+		return (this.nombre.compareTo(((Alumno) o).getNombre()));
+	}
+	@Override
+	public String toString() {
+		return "Alumno [num=" + num + ", nombre=" + nombre + ", media=" + media + ", curso=" + curso + "]";
+	}
+	
+	
 	
 }

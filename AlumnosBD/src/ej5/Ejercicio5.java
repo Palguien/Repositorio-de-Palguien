@@ -1,5 +1,10 @@
-package ej4;
+package ej5;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,6 +13,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import javax.swing.JFileChooser;
+
 import ej3.Alumno;
 
 /**
@@ -15,7 +22,7 @@ import ej3.Alumno;
  * @author junior
  *
  */
-public class Ejercicio4 {
+public class Ejercicio5 {
 
 	public static void main(String[] args) {
 		String url ="jdbc:oracle:thin:@localhost:1521:xe",usr = "c##alumnos", psw = "alumnos";
@@ -37,7 +44,32 @@ public class Ejercicio4 {
 			e.printStackTrace();
 		}
 		System.out.println("terminamos");
+		
+		//Ejercicio 5
+		//Chooser y filtros
+		JFileChooser chooser = new JFileChooser(".\\fils");
+		File fich;
+		chooser.showOpenDialog(null);
+		fich = chooser.getSelectedFile();
+		
+		FileOutputStream fileStreamOut;
+		
+		try {
+			fileStreamOut = new FileOutputStream(fich);
+			ObjectOutputStream objFileOut;
+			objFileOut = new ObjectOutputStream(fileStreamOut);
+			// writing objects
+			for (Alumno alumno : listado) {
+				objFileOut.writeObject(alumno);
+			}
+			objFileOut.close();
+		} catch (FileNotFoundException e1) {		
+			e1.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
+
 
 }
